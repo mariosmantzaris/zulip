@@ -235,9 +235,9 @@ export function stream_and_topic_exist_in_edit_history(message, stream_id, topic
 
 export function update_message_topic_editing_pencil() {
     if (page_params.realm_allow_message_editing) {
-        $(".on_hover_topic_edit, .always_visible_topic_edit").show();
-    } else {
         $(".on_hover_topic_edit, .always_visible_topic_edit").hide();
+    } else {
+        $(".on_hover_topic_edit, .always_visible_topic_edit").show();
     }
 }
 
@@ -619,7 +619,7 @@ function edit_message($row, raw_content) {
         const is_topic_edited = new_topic !== original_topic && new_topic !== "";
         const is_stream_edited = is_stream_editable ? new_stream_id !== original_stream_id : false;
         $message_edit_topic_propagate.toggle(is_topic_edited || is_stream_edited);
-        $message_edit_breadcrumb_messages.toggle(is_stream_edited);
+        $message_edit_breadcrumb_messages.toggle(is_topic_edited || is_stream_edited);
 
         if (is_stream_edited) {
             /* Reinitialize the typeahead component with content for the new stream. */
