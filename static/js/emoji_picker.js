@@ -44,6 +44,7 @@ let section_head_offsets = [];
 let edit_message_id = null;
 
 const EMOJI_CATEGORIES = [
+    {name: "Most used", icon: "fa-star-o"},
     {name: "Popular", icon: "fa-star-o"},
     {name: "Smileys & Emotion", icon: "fa-smile-o"},
     {name: "People & Body", icon: "fa-thumbs-o-up"},
@@ -151,6 +152,18 @@ export function rebuild_catalog() {
         }
     }
     catalog.set("Popular", popular);
+
+    const most_used = [];
+    for (const codepoint of typeahead.popular_emojis) {
+        const name = emoji.get_emoji_name(codepoint);
+        if (name !== undefined) {
+            const emoji_dict = emoji.emojis_by_name.get(name);
+            if (emoji_dict !== undefined) {
+                most_used.push(emoji_dict);
+            }
+        }
+    }
+    catalog.set("Most used", most_used);
 
     const categories = EMOJI_CATEGORIES.filter((category) => catalog.has(category.name));
     complete_emoji_catalog = categories.map((category) => ({
