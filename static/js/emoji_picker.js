@@ -154,7 +154,7 @@ export function rebuild_catalog() {
     catalog.set("Popular", popular);
 
     const most_used = [];
-    for (const codepoint of typeahead.popular_emojis) {
+    for (const codepoint of typeahead.most_used) {
         const name = emoji.get_emoji_name(codepoint);
         if (name !== undefined) {
             const emoji_dict = emoji.emojis_by_name.get(name);
