@@ -22,12 +22,12 @@
 
 // Temporary solution until I make the algorithm to find the most used emojis 
 export const most_used = [
-    "1f44d", // +1
-    "1f525", // fire
-    "1f642", // smile
+    "1f602", // laughing
     "2764", // heart
-    "1f923", // laughing
-    "1f61c", // tongue-out
+    "1f923", // rolling on the floor
+    "1f44d", // +1
+    "1f62d", // crying
+    "1f64f", // praying
 ];
 
 export const popular_emojis = [
